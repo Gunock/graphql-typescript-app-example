@@ -1,0 +1,53 @@
+{
+    "name": "@graphql-ts-app-example/app",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "check-types": "tsc --noEmit",
+        "dev": "vite --config vite.config.development.ts dev",
+        "build:development": "vite --config vite.config.development.ts build",
+        "build": "vite build",
+        "preview": "vite preview",
+        "codegen:compile": "graphql-codegen",
+        "codegen:watch": "graphql-codegen -w"
+    },
+    "dependencies": {
+        "@apollo/client": "^3.11.8",
+        "date-fns": "^4.1.0",
+        "graphql": "^16.9.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "semantic-ui-css": "^2.5.0",
+        "semantic-ui-react": "^2.1.5"
+    },
+    "devDependencies": {
+        "@graphql-codegen/cli": "^5.0.3",
+        "@graphql-codegen/client-preset": "^4.4.0",
+        "@graphql-ts-app-example/ts-config": "workspace:*",
+        "@graphql-typed-document-node/core": "^3.2.0",
+        "@types/node": "^22.7.6",
+        "@types/react": "^18.3.11",
+        "@types/react-dom": "^18.3.1",
+        "@vitejs/plugin-react-swc": "^3.7.1",
+        "typescript": "^5.6.3",
+        "vite": "^5.4.9",
+        "vite-tsconfig-paths": "^5.0.1"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "engines": {
+        "node": "^22"
+    },
+    "packageManager": "yarn@4.4.1"
+}

@@ -1,0 +1,87 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Device update progress"""
+type DeviceUpdateProgress {
+  last_updated: DateTime
+  update_status: DeviceUpdateStatus!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+enum DeviceUpdateStatus {
+  UP_TO_DATE
+  UPDATE_IN_PROGRESS
+  UNKNOWN
+}
+
+"""Firmware version"""
+type FirmwareVersion {
+  id: Int!
+  major: Int
+  minor: Int
+  patch: Int
+}
+
+"""User"""
+type User {
+  email: String
+  admin: Boolean
+  subscription_ends: DateTime
+}
+
+"""Device"""
+type Device {
+  id: Int!
+  name: String
+  user_email: String
+  firmware_version_id: Int
+  user: User
+  firmware_version: FirmwareVersion
+  update_progress: DeviceUpdateProgress
+}
+
+"""PaginatedResult"""
+type PaginatedDeviceResult {
+  data: [Device!]!
+  total: Int!
+}
+
+"""Update"""
+type Update {
+  id: Int!
+  device_id: Int
+  finished: DateTime
+}
+
+type Query {
+  devices(sortingOrder: DeviceOrder, pagination: DevicePagination): PaginatedDeviceResult!
+  users: [User!]!
+  firmware_versions: [FirmwareVersion!]!
+  updates: [Update!]!
+  device_update_progress: [DeviceUpdateProgress!]!
+}
+
+"""DeviceOrder"""
+input DeviceOrder {
+  user_email: SortingOrder
+  name: SortingOrder
+  version: SortingOrder
+  last_updated: SortingOrder
+  update_status: SortingOrder
+}
+
+enum SortingOrder {
+  ASC
+  DESC
+}
+
+"""DevicePagination"""
+input DevicePagination {
+  offset: Int!
+  limit: Int!
+}

@@ -1,0 +1,34 @@
+{
+    "name": "graphql-ts-app-example",
+    "private": true,
+    "type": "module",
+    "author": "Tomasz Kiljańczyk <asz.czyk.dev.com>",
+    "license": "MIT",
+    "scripts": {
+        "lint": "eslint . --cache --cache-strategy content --cache-location .cache/.eslintcache",
+        "format": "prettier --config prettier.config.js  --write .",
+        "prepare": "husky"
+    },
+    "workspaces": {
+        "packages": [
+            "app",
+            "server",
+            "ts-config"
+        ]
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.12.0",
+        "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+        "@types/eslint": "^9.6.1",
+        "@types/eslint-config-prettier": "^6.11.3",
+        "@types/eslint__js": "^8.42.3",
+        "eslint": "^9.12.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-react": "^7.37.1",
+        "eslint-plugin-react-hooks": "^5.0.0",
+        "prettier": "^3.3.3",
+        "typescript": "^5.6.3",
+        "typescript-eslint": "^8.9.0"
+    },
+    "packageManager": "yarn@4.4.1"
+}

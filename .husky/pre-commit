@@ -1,0 +1,4 @@
+yarn format
+(cd app && yarn check-types)
+(cd server && yarn check-types)
+yarn lint

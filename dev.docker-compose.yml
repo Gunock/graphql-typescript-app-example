@@ -1,0 +1,15 @@
+services:
+    react-app:
+        container_name: react-app
+        build:
+            dockerfile: app/dev.Dockerfile
+            args:
+                - 'GRAPHQL_URL=http://localhost:8081/graphql'
+        ports:
+            - '8080:8080'
+    server:
+        container_name: server
+        build:
+            dockerfile: server/dev.Dockerfile
+        ports:
+            - '8081:8081'

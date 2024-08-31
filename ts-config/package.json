@@ -1,0 +1,12 @@
+{
+    "name": "@graphql-ts-app-example/ts-config",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "files": [
+        "tsconfig.json"
+    ],
+    "peerDependencies": {
+        "typescript": "^5.5.4"
+    }
+}
