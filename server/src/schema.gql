@@ -2,10 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-"""Device update progress"""
+"""
+Device update progress
+"""
 type DeviceUpdateProgress {
-  last_updated: DateTime
-  update_status: DeviceUpdateStatus!
+    last_updated: DateTime
+    update_status: DeviceUpdateStatus!
 }
 
 """
@@ -14,74 +16,88 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 enum DeviceUpdateStatus {
-  UP_TO_DATE
-  UPDATE_IN_PROGRESS
-  UNKNOWN
+    UP_TO_DATE
+    UPDATE_IN_PROGRESS
+    UNKNOWN
 }
 
-"""Firmware version"""
+"""
+Firmware version
+"""
 type FirmwareVersion {
-  id: Int!
-  major: Int
-  minor: Int
-  patch: Int
+    id: Int!
+    major: Int
+    minor: Int
+    patch: Int
 }
 
-"""User"""
+"""
+User
+"""
 type User {
-  email: String
-  admin: Boolean
-  subscription_ends: DateTime
+    email: String
+    admin: Boolean
+    subscription_ends: DateTime
 }
 
-"""Device"""
+"""
+Device
+"""
 type Device {
-  id: Int!
-  name: String
-  user_email: String
-  firmware_version_id: Int
-  user: User
-  firmware_version: FirmwareVersion
-  update_progress: DeviceUpdateProgress
+    id: Int!
+    name: String
+    user_email: String
+    firmware_version_id: Int
+    user: User
+    firmware_version: FirmwareVersion
+    update_progress: DeviceUpdateProgress
 }
 
-"""PaginatedResult"""
+"""
+PaginatedResult
+"""
 type PaginatedDeviceResult {
-  data: [Device!]!
-  total: Int!
+    data: [Device!]!
+    total: Int!
 }
 
-"""Update"""
+"""
+Update
+"""
 type Update {
-  id: Int!
-  device_id: Int
-  finished: DateTime
+    id: Int!
+    device_id: Int
+    finished: DateTime
 }
 
 type Query {
-  devices(sortingOrder: DeviceOrder, pagination: DevicePagination): PaginatedDeviceResult!
-  users: [User!]!
-  firmware_versions: [FirmwareVersion!]!
-  updates: [Update!]!
-  device_update_progress: [DeviceUpdateProgress!]!
+    devices(sortingOrder: DeviceOrder, pagination: DevicePagination): PaginatedDeviceResult!
+    users: [User!]!
+    firmware_versions: [FirmwareVersion!]!
+    updates: [Update!]!
+    device_update_progress: [DeviceUpdateProgress!]!
 }
 
-"""DeviceOrder"""
+"""
+DeviceOrder
+"""
 input DeviceOrder {
-  user_email: SortingOrder
-  name: SortingOrder
-  version: SortingOrder
-  last_updated: SortingOrder
-  update_status: SortingOrder
+    user_email: SortingOrder
+    name: SortingOrder
+    version: SortingOrder
+    last_updated: SortingOrder
+    update_status: SortingOrder
 }
 
 enum SortingOrder {
-  ASC
-  DESC
+    ASC
+    DESC
 }
 
-"""DevicePagination"""
+"""
+DevicePagination
+"""
 input DevicePagination {
-  offset: Int!
-  limit: Int!
+    offset: Int!
+    limit: Int!
 }
